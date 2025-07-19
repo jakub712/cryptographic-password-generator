@@ -31,12 +31,11 @@ encoded = combined.encode()
 hashed = hashlib.sha384(encoded).digest()
 #slicing the badboy#
 num = int.from_bytes(hashed[:3], "big") %100 +1
-print (num)
 #a secure password#
 charset = string.ascii_lowercase + string.ascii_uppercase + string.punctuation
 word_list = data["words"]
 random.seed(hashed)
-password = f"{random.choice(word_list)}{symbol1}{symbol2}{random.choice(word_list)}"
+password = f"{random.choice(word_list)}{symbol1}{num}{symbol2}{random.choice(word_list)}"
 #printing the password#
 print (password)
 #copy to clipbored#
